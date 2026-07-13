@@ -20,9 +20,9 @@ const Navbar = () => {
         activeClass="nav-active"
         to={link}
         spy
-        smooth
-        offset={-88}
-        duration={500}
+        smooth="easeOutCubic"
+        offset={-80}
+        duration={350}
         className={mobile
           ? "block cursor-pointer border-b border-white/5 py-4 text-lg font-medium text-gray-300 transition-colors hover:text-white"
           : "nav-link cursor-pointer px-1 py-3 text-sm font-medium text-gray-400 transition-colors hover:text-white"}
@@ -33,9 +33,9 @@ const Navbar = () => {
   );
 
   return (
-    <header className="site-header sticky top-0 z-50 w-full border-b border-white/[0.06] bg-bodyColor/95">
+    <header className="sticky top-0 z-50 w-full border-b border-white/[0.06] bg-bodyColor">
       <div className="mx-auto flex h-20 max-w-screen-xl items-center justify-between px-4 sm:px-6">
-        <Link to="home" smooth duration={500} className="group flex cursor-pointer items-center gap-3">
+        <Link to="home" smooth="easeOutCubic" duration={350} className="group flex cursor-pointer items-center gap-3">
           <div className="h-11 w-11 overflow-hidden rounded-full border border-white/10 bg-black shadow-lg">
             <img className="h-full w-full object-cover object-top" src={profileImg} alt="Bageni Gilbert" width="1050" height="1498" decoding="async" />
           </div>
@@ -52,7 +52,7 @@ const Navbar = () => {
         </nav>
 
         <Link
-          to="contact" smooth offset={-88} duration={500}
+          to="contact" smooth="easeOutCubic" offset={-80} duration={350}
           className="hidden cursor-pointer items-center gap-2 rounded-full border border-designColor/30 bg-designColor/10 px-4 py-2.5 text-sm font-semibold text-designColor transition hover:-translate-y-0.5 hover:bg-designColor hover:text-white lg:inline-flex"
         >
           Let's talk <FiArrowUpRight />
@@ -79,7 +79,7 @@ const Navbar = () => {
             <nav className="mt-6"><ul>{navLinksdata.map((item) => navLink(item, true))}</ul></nav>
             <div className="mt-auto rounded-2xl border border-white/[0.07] bg-white/[0.03] p-5">
               <p className="text-xs uppercase tracking-[0.18em] text-gray-500">Have a project?</p>
-              <Link onClick={() => setShowMenu(false)} to="contact" smooth offset={-88} duration={500} className="mt-2 inline-flex cursor-pointer items-center gap-2 font-semibold text-designColor">Let's work together <FiArrowUpRight /></Link>
+              <Link onClick={() => setShowMenu(false)} to="contact" smooth="easeOutCubic" offset={-80} duration={350} className="mt-2 inline-flex cursor-pointer items-center gap-2 font-semibold text-designColor">Let's work together <FiArrowUpRight /></Link>
             </div>
           </div>
         </div>

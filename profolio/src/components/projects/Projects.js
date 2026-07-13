@@ -1,6 +1,13 @@
 import React from 'react';
 import Title from '../layouts/Title';
-import { projectOne, projectTwo, projectThree } from '../../assets/index';
+import {
+  shoppingDashboard,
+  peopleCounterDashboard,
+  botBattleDashboard,
+  socialDashboard,
+  ecommerceDashboard,
+  chatDashboard,
+} from '../../assets/index';
 import ProjectsCard from './ProjectsCard';
 
 const Projects = () => {
@@ -8,40 +15,40 @@ const Projects = () => {
     {
       title: 'Shopping Cart Recommendation',
       des: 'A seamless shopping experience that makes it easy to discover, recommend, and share products with friends and family.',
-      src: projectOne,
+      src: shoppingDashboard,
       websiteLink: 'https://addcartapp.netlify.app',
       githubLink: 'https://github.com/gilbert2003-beep/my-mobile-phone-app',
     },
     {
       title: 'People Counter System',
       des: 'An efficient people-counting experience for tracking entries and keeping attendance data clear and accessible.',
-      src: projectTwo,
+      src: peopleCounterDashboard,
       websiteLink: 'https://people-counter-entrance.netlify.app',
       githubLink: 'https://github.com/gilbert2003-beep/peoples-entrance-counter-',
     },
     {
       title: 'Bot Battlr',
       des: 'A strategic bot-battle platform where users assemble a team and put their selected bots to the test.',
-      src: projectThree,
+      src: botBattleDashboard,
       websiteLink: 'https://ip-02-code-challenge-bot-battlr-lfmb.vercel.app/',
       githubLink: 'https://github.com/gilbert2003-beep/IP02-Code-Challenge-Bot-Battlr',
     },
     {
       title: 'Social Media Clone',
       des: 'A social experience focused on connecting people through profiles, shared content, and familiar interactions.',
-      src: projectTwo,
+      src: socialDashboard,
       githubLink: 'https://github.com/gilbert2003-beep',
     },
     {
       title: 'E-commerce Website',
       des: 'A responsive storefront concept with clear product discovery and a straightforward shopping journey.',
-      src: projectOne,
+      src: ecommerceDashboard,
       githubLink: 'https://github.com/gilbert2003-beep',
     },
     {
       title: 'Chatting App',
       des: 'A clean messaging interface designed for simple conversations and comfortable use across devices.',
-      src: projectThree,
+      src: chatDashboard,
       githubLink: 'https://github.com/gilbert2003-beep',
     },
   ];

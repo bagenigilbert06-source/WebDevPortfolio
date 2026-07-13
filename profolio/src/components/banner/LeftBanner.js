@@ -31,7 +31,7 @@ const LeftBanner = () => {
           I craft seamless digital products from concept to deployment—pairing engaging interfaces with robust, scalable systems to create experiences that feel as good as they perform.
         </p>
         <a
-          href="https://gilbertresume.netlify.app"
+          href="https://dev-resume-cv.vercel.app/"
           className="group inline-flex items-center justify-center gap-3 min-h-12 px-6 rounded-xl bg-designColor text-white text-sm font-semibold tracking-wide shadow-[0_10px_30px_rgba(34,197,94,0.2)] cursor-pointer transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_14px_36px_rgba(34,197,94,0.3)] focus:outline-none focus-visible:ring-2 focus-visible:ring-designColor focus-visible:ring-offset-2 focus-visible:ring-offset-bodyColor"
         >
           Show My Resume

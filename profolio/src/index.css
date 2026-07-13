@@ -10,7 +10,7 @@
 }
 
 html {
-  scroll-behavior: smooth;
+  scroll-behavior: auto;
   scrollbar-gutter: stable;
   overscroll-behavior-y: none;
 }
@@ -29,12 +29,6 @@ img {
 
 section[id] {
   scroll-margin-top: 5rem;
-}
-
-.site-header {
-  transform: translateZ(0);
-  backface-visibility: hidden;
-  contain: layout paint style;
 }
 
 .role-text {
