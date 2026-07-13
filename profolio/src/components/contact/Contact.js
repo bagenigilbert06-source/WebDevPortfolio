@@ -13,23 +13,29 @@ const Contact = () => {
   const [isSending, setIsSending] = useState(false);
 
   const emailValidation = () => {
-    return String(email).toLocaleLowerCase().match(/^\w+([-]?\w+)*@\w+([-]?\w+)*(\.\w{2,3})+$/);
+    return /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(email.trim());
+  };
+
+  const updateField = (setter) => (event) => {
+    setter(event.target.value);
+    if (errMsg) setErrMsg('');
+    if (successMsg) setSuccessMsg('');
   };
 
   const handleSend = async (e) => {
     e.preventDefault();
     setSuccessMsg('');
-    if (username === '') {
+    if (username.trim() === '') {
       setErrMsg('Username is required!');
-    } else if (phoneNumber === '') {
+    } else if (phoneNumber.trim() === '') {
       setErrMsg('Phone number is required!');
-    } else if (email === '') {
+    } else if (email.trim() === '') {
       setErrMsg('Please give your Email!');
     } else if (!emailValidation(email)) {
       setErrMsg('Give a valid Email!');
-    } else if (subject === '') {
+    } else if (subject.trim() === '') {
       setErrMsg('Please give your Subject!');
-    } else if (message === '') {
+    } else if (message.trim() === '') {
       setErrMsg('Message is required!');
     } else {
       setErrMsg('');
@@ -43,12 +49,12 @@ const Contact = () => {
             Accept: 'application/json',
           },
           body: JSON.stringify({
-            name: username,
-            email,
-            phone: phoneNumber,
-            subject,
-            message,
-            _subject: `New portfolio message: ${subject}`,
+            name: username.trim(),
+            email: email.trim(),
+            phone: phoneNumber.trim(),
+            subject: subject.trim(),
+            message: message.trim(),
+            _subject: `New portfolio message: ${subject.trim()}`,
             _template: 'table',
             _captcha: 'false',
           }),
@@ -100,7 +106,7 @@ const Contact = () => {
                     id="username"
                     name="name"
                     autoComplete="name"
-                    onChange={(e) => setUsername(e.target.value)}
+                    onChange={updateField(setUsername)}
                     value={username}
                     className={`${
                       errMsg === 'Username is required!' && 'outline-designColor focus:ring focus:border-designColor transition duration-300'
@@ -114,7 +120,7 @@ const Contact = () => {
                     id="phoneNumber"
                     name="phone"
                     autoComplete="tel"
-                    onChange={(e) => setPhoneNumber(e.target.value)}
+                    onChange={updateField(setPhoneNumber)}
                     value={phoneNumber}
                     className={`${
                       errMsg === 'Phone number is required!' && 'outline-designColor focus:ring focus:border-designColor transition duration-300'
@@ -129,7 +135,7 @@ const Contact = () => {
                   id="email"
                   name="email"
                   autoComplete="email"
-                  onChange={(e) => setEmail(e.target.value)}
+                  onChange={updateField(setEmail)}
                   value={email}
                   className={`${
                     errMsg === 'Please give your Email!' && 'outline-designColor focus:ring focus:border-designColor transition duration-300'
@@ -142,7 +148,7 @@ const Contact = () => {
                 <input
                   id="subject"
                   name="subject"
-                  onChange={(e) => setSubject(e.target.value)}
+                  onChange={updateField(setSubject)}
                   value={subject}
                   className={`${
                     errMsg === 'Please give your Subject!' && 'outline-designColor focus:ring focus:border-designColor transition duration-300'
@@ -155,7 +161,7 @@ const Contact = () => {
                 <textarea
                   id="message"
                   name="message"
-                  onChange={(e) => setMessage(e.target.value)}
+                  onChange={updateField(setMessage)}
                   value={message}
                   className={`${
                     errMsg === 'Message is required!' && 'outline-designColor focus:ring focus:border-designColor transition duration-300'
