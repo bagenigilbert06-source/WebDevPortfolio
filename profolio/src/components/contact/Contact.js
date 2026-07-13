@@ -93,7 +93,7 @@ const Contact = () => {
         }
 
         setSuccessMsg('Thank you! Your message has been sent successfully.');
-        celebrateSubmission();
+        celebrateSubmission().catch(() => {});
         setUsername('');
         setPhoneNumber('');
         setEmail('');
@@ -129,7 +129,7 @@ const Contact = () => {
               )}
               <div className="w-full flex flex-col lgl:flex-row gap-10">
                 <div className="w-full lgl:w-1/2 flex flex-col gap-4">
-                  <p className="text-sm text-gray-100 uppercase tracking-wide">Your name</p>
+                  <label htmlFor="username" className="text-sm text-gray-100 uppercase tracking-wide">Your name</label>
                   <input
                     id="username"
                     name="name"
@@ -140,10 +140,11 @@ const Contact = () => {
                       errMsg === 'Username is required!' && 'outline-designColor focus:ring focus:border-designColor transition duration-300'
                     } contactInput bg-[#141518] text-white px-3 py-2 rounded-md focus:outline-none focus:ring focus:border-designColor`}
                     type="text"
+                    required
                   />
                 </div>
                 <div className="w-full lgl:w-1/2 flex flex-col gap-4">
-                  <p className="text-sm text-gray-100 uppercase tracking-wide">Phone Number</p>
+                  <label htmlFor="phoneNumber" className="text-sm text-gray-100 uppercase tracking-wide">Phone Number</label>
                   <input
                     id="phoneNumber"
                     name="phone"
@@ -153,12 +154,13 @@ const Contact = () => {
                     className={`${
                       errMsg === 'Phone number is required!' && 'outline-designColor focus:ring focus:border-designColor transition duration-300'
                     } contactInput bg-[#141518] text-white px-3 py-2 rounded-md focus:outline-none focus:ring focus:border-designColor`}
-                    type="text"
+                    type="tel"
+                    required
                   />
                 </div>
               </div>
               <div className="flex flex-col gap-4">
-                <p className="text-sm text-gray-100 uppercase tracking-wide">Email</p>
+                <label htmlFor="email" className="text-sm text-gray-100 uppercase tracking-wide">Email</label>
                 <input
                   id="email"
                   name="email"
@@ -169,10 +171,11 @@ const Contact = () => {
                     errMsg === 'Please give your Email!' && 'outline-designColor focus:ring focus:border-designColor transition duration-300'
                   } contactInput bg-[#141518] text-white px-3 py-2 rounded-md focus:outline-none focus:ring focus:border-designColor`}
                   type="email"
+                  required
                 />
               </div>
               <div className="flex flex-col gap-4">
-                <p className="text-sm text-gray-100 uppercase tracking-wide">Subject</p>
+                <label htmlFor="subject" className="text-sm text-gray-100 uppercase tracking-wide">Subject</label>
                 <input
                   id="subject"
                   name="subject"
@@ -182,10 +185,11 @@ const Contact = () => {
                     errMsg === 'Please give your Subject!' && 'outline-designColor focus:ring focus:border-designColor transition duration-300'
                   } contactInput bg-[#141518] text-white px-3 py-2 rounded-md focus:outline-none focus:ring focus:border-designColor`}
                   type="text"
+                  required
                 />
               </div>
               <div className="flex flex-col gap-4">
-                <p className="text-sm text-gray-100 uppercase tracking-wide">Message</p>
+                <label htmlFor="message" className="text-sm text-gray-100 uppercase tracking-wide">Message</label>
                 <textarea
                   id="message"
                   name="message"
@@ -196,6 +200,7 @@ const Contact = () => {
                   } contactTextArea bg-[#141518] text-white px-3 py-2 rounded-md focus:outline-none focus:ring focus:border-designColor`}
                   cols="30"
                   rows="8"
+                  required
                 ></textarea>
               </div>
               <div className="w-full">

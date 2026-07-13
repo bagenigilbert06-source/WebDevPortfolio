@@ -12,24 +12,28 @@ import "slick-carousel/slick/slick-theme.css";
 function SampleNextArrow(props) {
   const { onClick } = props;
   return (
-    <div
+    <button
+      type="button"
+      aria-label="Next testimonial"
       className="w-14 h-12 bg-[#0c1821] hover:bg-black duration-300 rounded-md text-2xl text-gray-400 flex justify-center items-center absolute top-0 right-0 shadow-shadowOne cursor-pointer z-10"
       onClick={onClick}
     >
       <HiArrowRight />
-    </div>
+    </button>
   );
 }
 
 function SamplePrevArrow(props) {
   const { onClick } = props;
   return (
-    <div
+    <button
+      type="button"
+      aria-label="Previous testimonial"
       className="w-14 h-12 bg-[#0c1821] hover:bg-black duration-300 rounded-md text-2xl text-gray-400 flex justify-center items-center absolute top-0 right-20 shadow-shadowOne cursor-pointer z-10"
       onClick={onClick}
     >
       <HiArrowLeft />
-    </div>
+    </button>
   );
 }
 
@@ -38,9 +42,11 @@ const Testimonial = () => {
      const settings = {
        dots: true,
        infinite: true,
-       speed: 500,
+       speed: 350,
        slidesToShow: 1,
        slidesToScroll: 1,
+       accessibility: true,
+       pauseOnHover: true,
        nextArrow:<SampleNextArrow />,
        prevArrow:<SamplePrevArrow />,
        beforeChange: (prev, next) => {

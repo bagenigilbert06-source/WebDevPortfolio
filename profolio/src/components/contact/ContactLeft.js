@@ -1,5 +1,6 @@
 import React from 'react';
-import { FaFacebookF, FaTwitter, FaLinkedinIn } from 'react-icons/fa';
+import { FaEnvelope, FaPhoneAlt } from 'react-icons/fa';
+import { BsGithub } from 'react-icons/bs';
 import { profileImg } from '../../assets/index';
 
 const ContactLeft = () => {
@@ -21,24 +22,18 @@ const ContactLeft = () => {
           I am a passionate Full Stack Developer dedicated to creating innovative solutions.
         </p>
         <p className="text-base text-gray-400 flex items-center gap-2">
-          Phone: <span className="text-lightText">+254 746 741 719</span>
+          Phone: <a href="tel:+254746741719" className="text-lightText hover:text-designColor">+254 746 741 719</a>
         </p>
         <p className="text-base text-gray-400 flex items-center gap-2">
-          Email: <span className="text-lightText">bagenigilbert@gmail.com</span>
+          Email: <a href="mailto:bagenigilbert@gmail.com" className="break-all text-lightText hover:text-designColor">bagenigilbert@gmail.com</a>
         </p>
       </div>
       <div className="flex flex-col gap-4">
         <h2 className="text-base uppercase font-titleFont mb-4">Find me on</h2>
         <div className="flex gap-4">
-          <span className="bannerIcon">
-            <FaFacebookF />
-          </span>
-          <span className="bannerIcon">
-            <FaTwitter />
-          </span>
-          <span className="bannerIcon">
-            <FaLinkedinIn />
-          </span>
+          <a href="https://github.com/gilbert2003-beep" target="_blank" rel="noopener noreferrer" aria-label="GitHub" className="bannerIcon"><BsGithub /></a>
+          <a href="mailto:bagenigilbert@gmail.com" aria-label="Email Bageni Gilbert" className="bannerIcon"><FaEnvelope /></a>
+          <a href="tel:+254746741719" aria-label="Call Bageni Gilbert" className="bannerIcon"><FaPhoneAlt /></a>
         </div>
       </div>
     </div>

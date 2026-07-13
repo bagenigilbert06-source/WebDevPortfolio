@@ -1,10 +1,14 @@
 import React from 'react';
-import { FaFacebookF, FaTwitter, FaLinkedinIn, FaReact, FaInstagram } from 'react-icons/fa';
+import { FaEnvelope, FaReact, FaFileAlt } from 'react-icons/fa';
+import { BsGithub } from 'react-icons/bs';
 import { SiTailwindcss, SiFigma } from 'react-icons/si';
 import { DiJavascript1 } from 'react-icons/di';
-import { socialLinks } from '../../constants/banner';
 
-const socialIcons = [FaFacebookF, FaTwitter, FaLinkedinIn, FaInstagram];
+const contactLinks = [
+  { name: 'GitHub', href: 'https://github.com/gilbert2003-beep', icon: BsGithub, external: true },
+  { name: 'Email', href: 'mailto:bagenigilbert@gmail.com', icon: FaEnvelope },
+  { name: 'Resume', href: 'https://dev-resume-cv.vercel.app/', icon: FaFileAlt, external: true },
+];
 const skillIcons = [FaReact, DiJavascript1, SiTailwindcss, SiFigma];
 
 const Media = () => {
@@ -16,10 +20,9 @@ const Media = () => {
       <div className={containerStyle}>
         <h2 className="text-xs uppercase tracking-[0.2em] text-gray-500 font-titleFont mb-4">Find me on</h2>
         <div className="flex gap-3">
-          {socialLinks.map(({ name, href }, index) => {
-            const Icon = socialIcons[index];
+          {contactLinks.map(({ name, href, icon: Icon, external }) => {
             return (
-              <a key={name} href={href} aria-label={name} target="_blank" rel="noopener noreferrer" className={`bannerIcon ${iconStyle}`}>
+              <a key={name} href={href} aria-label={name} target={external ? '_blank' : undefined} rel={external ? 'noopener noreferrer' : undefined} className={`bannerIcon ${iconStyle}`}>
                 <Icon />
               </a>
             );

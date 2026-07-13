@@ -11,7 +11,7 @@ import testimonialOne from "./images/testimonial/testimonialOne.png";
 import testimonialTwo from "./images/testimonial/testimonialTwo.png";
 import quote from "./images/testimonial/quote.png";
 
-const profileImg = "/profile.png";
+const profileImg = "/profile.webp";
 
 export {
   profileImg,

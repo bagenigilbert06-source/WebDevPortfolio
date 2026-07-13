@@ -10,7 +10,14 @@ const Navbar = () => {
 
   useEffect(() => {
     document.body.style.overflow = showMenu ? "hidden" : "";
-    return () => { document.body.style.overflow = ""; };
+    const closeOnEscape = (event) => {
+      if (event.key === "Escape") setShowMenu(false);
+    };
+    if (showMenu) document.addEventListener("keydown", closeOnEscape);
+    return () => {
+      document.body.style.overflow = "";
+      document.removeEventListener("keydown", closeOnEscape);
+    };
   }, [showMenu]);
 
   const navLink = ({ _id, title, link }, mobile = false) => (

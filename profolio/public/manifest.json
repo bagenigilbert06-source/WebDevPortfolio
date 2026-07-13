@@ -3,9 +3,9 @@
   "name": "Bageni Gilbert | Full-Stack Developer",
   "icons": [
     {
-      "src": "profile.png",
+      "src": "profile-icon.png",
       "type": "image/png",
-      "sizes": "any",
+      "sizes": "192x192",
       "purpose": "any maskable"
     }
   ],

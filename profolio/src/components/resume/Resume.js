@@ -42,7 +42,7 @@ const Resume = () => {
             <ResumeButton key={id} onClick={() => setActiveTab(id)} isActive={activeTab === id} text={label} />
           ))}
         </div>
-        <ActiveSection />
+        <div role="tabpanel"><ActiveSection /></div>
       </div>
     </section>
   );
