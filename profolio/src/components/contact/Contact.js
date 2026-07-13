@@ -14,11 +14,19 @@ const celebrateSubmission = async () => {
     zIndex: 1000,
   };
 
+  // Wave 1: focused center burst.
   confetti({ ...defaults, particleCount: 90, spread: 75, startVelocity: 42, origin: { x: 0.5, y: 0.58 } });
+
+  // Wave 2: matching bursts from both lower corners.
   window.setTimeout(() => {
     confetti({ ...defaults, particleCount: 55, angle: 60, spread: 60, startVelocity: 48, origin: { x: 0, y: 0.7 } });
     confetti({ ...defaults, particleCount: 55, angle: 120, spread: 60, startVelocity: 48, origin: { x: 1, y: 0.7 } });
-  }, 180);
+  }, 500);
+
+  // Wave 3: a soft finishing shower across the page.
+  window.setTimeout(() => {
+    confetti({ ...defaults, particleCount: 110, spread: 120, startVelocity: 30, gravity: 0.8, origin: { x: 0.5, y: 0.15 } });
+  }, 1050);
 };
 
 const Contact = () => {
