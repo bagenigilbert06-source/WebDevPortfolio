@@ -2,6 +2,25 @@ import React, { useState } from 'react';
 import Title from '../layouts/Title';
 import ContactLeft from './ContactLeft';
 
+const celebrateSubmission = async () => {
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+  const { default: confetti } = await import('canvas-confetti');
+  const colors = ['#22c55e', '#4ade80', '#ffffff', '#facc15'];
+  const defaults = {
+    colors,
+    disableForReducedMotion: true,
+    ticks: 220,
+    zIndex: 1000,
+  };
+
+  confetti({ ...defaults, particleCount: 90, spread: 75, startVelocity: 42, origin: { x: 0.5, y: 0.58 } });
+  window.setTimeout(() => {
+    confetti({ ...defaults, particleCount: 55, angle: 60, spread: 60, startVelocity: 48, origin: { x: 0, y: 0.7 } });
+    confetti({ ...defaults, particleCount: 55, angle: 120, spread: 60, startVelocity: 48, origin: { x: 1, y: 0.7 } });
+  }, 180);
+};
+
 const Contact = () => {
   const [username, setUsername] = useState('');
   const [phoneNumber, setPhoneNumber] = useState('');
@@ -66,6 +85,7 @@ const Contact = () => {
         }
 
         setSuccessMsg('Thank you! Your message has been sent successfully.');
+        celebrateSubmission();
         setUsername('');
         setPhoneNumber('');
         setEmail('');
