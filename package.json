@@ -1,5 +1,10 @@
 {
-  "dependencies": {
-    "react-spring": "^9.7.3"
+  "name": "web-dev-portfolio",
+  "private": true,
+  "packageManager": "pnpm@10.13.1",
+  "scripts": {
+    "dev": "pnpm --filter profolio start",
+    "build": "pnpm --filter profolio build",
+    "test": "pnpm --filter profolio test"
   }
 }

@@ -7,15 +7,15 @@ const Education = () => {
     <motion.div
       initial={{ opacity: 0 }}
       animate={{ opacity: 1, transition: { duration: 0.5 } }}
-      className="w-full flex flex-col lgl:flex-row gap-10 lgl:gap-20"
+      className="w-full grid grid-cols-1 lgl:grid-cols-2 gap-10 lgl:gap-12"
     >
       {/* Part One */}
       <div>
-        <div className="py-6 lgl:py-12 font-titleFont flex flex-col gap-4">
+        <div className="py-9 lgl:py-10 font-titleFont flex flex-col gap-2">
           <p className="text-sm text-designColor tracking-[4px]">2010 - 2023</p>
-          <h2 className="text-3xl md:text-4xl font-bold">Educational Background</h2>
+          <h2 className="text-xl md:text-2xl font-bold text-white">Educational Background</h2>
         </div>
-        <div className="mt-6 lgl:mt-14 w-full h-[1000px] border-l-[6px] border-l-black border-opacity-30 flex flex-col gap-10">
+        <div className="w-full flex flex-col gap-5">
           <ResumeCard
             title="Self-Taught Enthusiast"
             subTitle="Passionate Learner and Independent Thinker"
@@ -33,11 +33,11 @@ const Education = () => {
 
       {/* Part Two */}
       <div>
-        <div className="py-6 lgl:py-12 font-titleFont flex flex-col gap-4">
+        <div className="py-9 lgl:py-10 font-titleFont flex flex-col gap-2">
           <p className="text-sm text-designColor tracking-[4px]">2023 - Present</p>
-          <h2 className="text-3xl md:text-4xl font-bold">Professional Journey</h2>
+          <h2 className="text-xl md:text-2xl font-bold text-white">Professional Journey</h2>
         </div>
-        <div className="mt-6 lgl:mt-14 w-full h-[1000px] border-l-[6px] border-l-black border-opacity-30 flex flex-col gap-10">
+        <div className="w-full flex flex-col gap-5">
           <ResumeCard
             title="Self-Taught Enthusiast"
             subTitle="Continuous Learning and Skill Enhancement"

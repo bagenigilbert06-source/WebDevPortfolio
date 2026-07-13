@@ -1,4 +1,83 @@
-@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Poppins:wght@400;500;600;700&display=swap");
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer components {
+  .bannerIcon {
+    @apply w-11 h-11 inline-flex items-center justify-center rounded-xl text-lightText bg-gradient-to-br from-[#1e2024] to-[#23272b] border border-white/5 shadow-shadowOne;
+  }
+}
+
+html {
+  scroll-behavior: smooth;
+  scrollbar-gutter: stable;
+  overscroll-behavior-y: none;
+}
+
+body {
+  margin: 0;
+  background: #212428;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeSpeed;
+}
+
+img {
+  display: block;
+}
+
+section[id] {
+  scroll-margin-top: 5rem;
+}
+
+.site-header {
+  transform: translateZ(0);
+  backface-visibility: hidden;
+  contain: layout paint style;
+}
+
+.role-text {
+  display: inline-block;
+}
+
+.nav-link {
+  position: relative;
+}
+
+.nav-link::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  right: 50%;
+  bottom: 4px;
+  height: 2px;
+  border-radius: 999px;
+  background: #22c55e;
+  transition: left 200ms ease, right 200ms ease;
+}
+
+.nav-link:hover::after,
+.nav-link.nav-active::after {
+  left: 0;
+  right: 0;
+}
+
+.nav-link.nav-active {
+  color: #fff;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+  }
+}

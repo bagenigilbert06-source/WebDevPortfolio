@@ -1,114 +1,90 @@
-import React, { useState } from 'react';
-import { Link } from 'react-scroll';
-import { FiMenu } from 'react-icons/fi';
-import { MdClose } from 'react-icons/md';
-import { FaFacebookF, FaTwitter, FaLinkedinIn } from 'react-icons/fa';
-import { logo } from '../../assets/index';
-import { navLinksdata } from '../../constants';
+import React, { useEffect, useState } from "react";
+import { Link } from "react-scroll";
+import { FiArrowUpRight, FiMenu } from "react-icons/fi";
+import { MdClose } from "react-icons/md";
+import { profileImg } from "../../assets/index";
+import { navLinksdata } from "../../constants";
 
 const Navbar = () => {
   const [showMenu, setShowMenu] = useState(false);
 
+  useEffect(() => {
+    document.body.style.overflow = showMenu ? "hidden" : "";
+    return () => { document.body.style.overflow = ""; };
+  }, [showMenu]);
+
+  const navLink = ({ _id, title, link }, mobile = false) => (
+    <li key={_id}>
+      <Link
+        onClick={() => mobile && setShowMenu(false)}
+        activeClass="nav-active"
+        to={link}
+        spy
+        smooth
+        offset={-88}
+        duration={500}
+        className={mobile
+          ? "block cursor-pointer border-b border-white/5 py-4 text-lg font-medium text-gray-300 transition-colors hover:text-white"
+          : "nav-link cursor-pointer px-1 py-3 text-sm font-medium text-gray-400 transition-colors hover:text-white"}
+      >
+        {title}
+      </Link>
+    </li>
+  );
+
   return (
-    <div className="w-full h-24 sticky top-0 z-50 bg-bodyColor mx-auto flex justify-between items-center font-titleFont border-b-[1px] border-b-gray-600">
-      <div className="flex items-center">
-        <div className="w-16 h-16 overflow-hidden rounded-full border-black border-2 aspect-w-1 aspect-h-1">
-          <img
-            className="w-full h-full object-cover"
-            src={logo}
-            alt="logo"
-          />
-        </div>
-        <span className="ml-3 text-designColor font-titleFont text-xl font-semibold">FULL STACK DEVELOPER</span>
-      </div>
-      <div>
-        <ul className="hidden mdl:inline-flex items-center gap-6 lg:gap-10">
-          {navLinksdata.map(({ _id, title, link }) => (
-            <li
-              className="text-base font-normal text-gray-400 tracking-wide cursor-pointer transition duration-300 hover:text-designColor hover:underline"
-              key={_id}
-            >
-              <Link
-                activeClass="active"
-                to={link}
-                spy={true}
-                smooth={true}
-                offset={-70}
-                duration={500}
-              >
-                {title}
-              </Link>
-            </li>
-          ))}
-        </ul>
-        <span
-          onClick={() => setShowMenu(!showMenu)}
-          className="text-xl mdl:hidden bg-black w-10 h-10 inline-flex items-center justify-center rounded-full text-designColor cursor-pointer transition duration-300 hover:bg-gray-800"
+    <header className="site-header sticky top-0 z-50 w-full border-b border-white/[0.06] bg-bodyColor/95">
+      <div className="mx-auto flex h-20 max-w-screen-xl items-center justify-between px-4 sm:px-6">
+        <Link to="home" smooth duration={500} className="group flex cursor-pointer items-center gap-3">
+          <div className="h-11 w-11 overflow-hidden rounded-full border border-white/10 bg-black shadow-lg">
+            <img className="h-full w-full object-cover object-top" src={profileImg} alt="Bageni Gilbert" width="1050" height="1498" decoding="async" />
+          </div>
+          <div className="leading-tight">
+            <p className="text-sm font-semibold tracking-wide text-white">Bageni Gilbert</p>
+            <p className="mt-1 text-[10px] font-medium uppercase tracking-[0.2em] text-designColor">Full-stack developer</p>
+          </div>
+        </Link>
+
+        <nav aria-label="Primary navigation" className="hidden mdl:block">
+          <ul className="flex items-center gap-5 lg:gap-8">
+            {navLinksdata.map((item) => navLink(item))}
+          </ul>
+        </nav>
+
+        <Link
+          to="contact" smooth offset={-88} duration={500}
+          className="hidden cursor-pointer items-center gap-2 rounded-full border border-designColor/30 bg-designColor/10 px-4 py-2.5 text-sm font-semibold text-designColor transition hover:-translate-y-0.5 hover:bg-designColor hover:text-white lg:inline-flex"
+        >
+          Let's talk <FiArrowUpRight />
+        </Link>
+
+        <button
+          type="button" aria-label="Open navigation" aria-expanded={showMenu}
+          onClick={() => setShowMenu(true)}
+          className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-white/10 bg-white/5 text-xl text-white transition hover:border-designColor/40 hover:text-designColor mdl:hidden"
         >
           <FiMenu />
-        </span>
-        {showMenu && (
-          <div className="w-[80%] h-screen overflow-scroll absolute top-0 left-0 bg-gray-900 p-4 scrollbar-hide">
-            <div className="flex flex-col gap-8 py-2 relative">
-              <div className="flex items-center">
-                <div className="w-12 h-12 overflow-hidden rounded-full border-black border-2 aspect-w-1 aspect-h-1">
-                  <img
-                    className="w-full h-full object-cover"
-                    src={logo}
-                    alt="logo"
-                  />
-                </div>
-                <span className="ml-2 text-gray-400 font-titleFont">
-                  DEVELOPER
-                </span>
-              </div>
-              <ul className="flex flex-col gap-4">
-                {navLinksdata.map((item) => (
-                  <li
-                    key={item._id}
-                    className="text-base font-normal text-gray-400 tracking-wide cursor-pointer transition duration-300 hover:text-designColor hover:underline"
-                  >
-                    <Link
-                      onClick={() => setShowMenu(false)}
-                      activeClass="active"
-                      to={item.link}
-                      spy={true}
-                      smooth={true}
-                      offset={-70}
-                      duration={500}
-                    >
-                      {item.title}
-                    </Link>
-                  </li>
-                ))}
-              </ul>
-              <div className="flex flex-col gap-4">
-                <h2 className="text-base uppercase font-titleFont mb-4">
-                  Find me in
-                </h2>
-                <div className="flex gap-4">
-                  <span className="bannerIcon">
-                    <FaFacebookF />
-                  </span>
-                  <span className="bannerIcon">
-                    <FaTwitter />
-                  </span>
-                  <span className="bannerIcon">
-                    <FaLinkedinIn />
-                  </span>
-                </div>
-              </div>
-              <span
-                onClick={() => setShowMenu(false)}
-                className="absolute top-4 right-4 text-gray-400 hover:text-designColor duration-300 text-2xl cursor-pointer"
-              >
+        </button>
+      </div>
+
+      {showMenu && (
+        <div className="fixed inset-0 top-0 z-[60] h-screen bg-black/80 mdl:hidden" onClick={() => setShowMenu(false)}>
+          <div className="ml-auto flex h-full w-[86%] max-w-sm flex-col bg-[#191b1f] p-6 shadow-2xl" onClick={(e) => e.stopPropagation()}>
+            <div className="flex items-center justify-between border-b border-white/10 pb-5">
+              <p className="text-sm font-semibold uppercase tracking-[0.18em] text-white">Navigation</p>
+              <button type="button" aria-label="Close navigation" onClick={() => setShowMenu(false)} className="inline-flex h-10 w-10 items-center justify-center rounded-full bg-white/5 text-xl text-gray-300 hover:text-designColor">
                 <MdClose />
-              </span>
+              </button>
+            </div>
+            <nav className="mt-6"><ul>{navLinksdata.map((item) => navLink(item, true))}</ul></nav>
+            <div className="mt-auto rounded-2xl border border-white/[0.07] bg-white/[0.03] p-5">
+              <p className="text-xs uppercase tracking-[0.18em] text-gray-500">Have a project?</p>
+              <Link onClick={() => setShowMenu(false)} to="contact" smooth offset={-88} duration={500} className="mt-2 inline-flex cursor-pointer items-center gap-2 font-semibold text-designColor">Let's work together <FiArrowUpRight /></Link>
             </div>
           </div>
-        )}
-      </div>
-    </div>
+        </div>
+      )}
+    </header>
   );
 };
 

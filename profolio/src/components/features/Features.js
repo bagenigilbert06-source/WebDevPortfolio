@@ -33,7 +33,7 @@ const Features = () => {
         {/* Download CV Button */}
         <button
           onClick={handleDownloadCV}
-          className="mt-4 inline-block px-6 py-3 text-lg font-medium text-white bg-designColor rounded-md transition-colors duration-300 hover:bg-red-800 focus:outline-none focus:ring focus:border-designColor"
+          className="mt-4 inline-block px-6 py-3 text-lg font-medium text-white bg-designColor rounded-md transition-colors duration-300 hover:bg-green-700 focus:outline-none focus:ring focus:border-designColor"
         >
           Download CV
         </button>

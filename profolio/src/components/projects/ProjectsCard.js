@@ -4,41 +4,44 @@ import { FaGlobe } from 'react-icons/fa';
 
 const ProjectsCard = ({ title, des, src, websiteLink, githubLink }) => {
   return (
-    <div className="w-full p-4 xl:px-12 h-auto xl:py-10 rounded-lg shadow-shadowOne flex flex-col bg-gradient-to-r from-bodyColor to-[#202327] group hover:bg-gradient-to-b hover:from-gray-900 hover:gray-900 transition-colors duration-1000">
-      <a href={websiteLink} target="_blank" rel="noopener noreferrer">
-        <div className="w-full h-[80%] overflow-hidden rounded-lg">
+    <article className="group flex h-full w-full flex-col rounded-xl border border-white/[0.04] bg-[#1d2024] p-5 shadow-shadowOne transition-colors duration-300 hover:border-designColor/20 sm:p-6">
+      <a href={websiteLink || githubLink} target="_blank" rel="noopener noreferrer" className="block">
+        <div className="relative aspect-[16/10] w-full overflow-hidden rounded-lg border border-white/[0.06] bg-[#17191c]">
           <img
-            className="w-full h-60 object-cover group-hover:scale-110 duration-300 cursor-pointer"
+            className="h-full w-full object-cover transition-transform duration-500 ease-out group-hover:scale-[1.035]"
+            loading="lazy"
+            decoding="async"
             src={src}
-            alt="Project"
+            alt={`${title} project preview`}
           />
+          <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/20 to-transparent" />
         </div>
       </a>
-      <div className="w-full mt-5 flex flex-col  gap-6">
+      <div className="mt-6 flex w-full flex-1 flex-col gap-5">
         <div>
-          <div className="flex items-center justify-between">
-            <h3 className="text-base uppercase text-rdesignColor font-normal">
+          <div className="flex items-start justify-between gap-4">
+            <h3 className="pt-2 text-sm font-semibold uppercase tracking-wide text-designColor">
               {title}
             </h3>
             <div className="flex gap-2">
-              <a href={githubLink} target="_blank" rel="noopener noreferrer">
+              <a href={githubLink} target="_blank" rel="noopener noreferrer" aria-label={`Open ${title} source code`}>
                 <span className="text-lg w-10 h-10 rounded-full bg-black inline-flex justify-center items-center text-gray-400 hover:text-designColor duration-300 cursor-pointer">
                   <BsGithub />
                 </span>
               </a>
-              <a href={websiteLink} target="_blank" rel="noopener noreferrer">
+              {websiteLink && <a href={websiteLink} target="_blank" rel="noopener noreferrer" aria-label={`Open ${title} website`}>
                 <span className="text-lg w-10 h-10 rounded-full bg-black inline-flex justify-center items-center text-gray-400 hover:text-designColor duration-300 cursor-pointer">
                   <FaGlobe />
                 </span>
-              </a>
+              </a>}
             </div>
           </div>
-          <p className="text-sm tracking-wide mt-3 hover:text-gray-100 duration-300">
+          <p className="mt-4 text-sm leading-6 tracking-wide text-gray-400 transition-colors duration-300 group-hover:text-gray-300">
             {des}
           </p>
         </div>
       </div>
-    </div>
+    </article>
   );
 };
 

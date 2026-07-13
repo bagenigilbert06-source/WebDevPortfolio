@@ -7,14 +7,14 @@ const Experience = () => {
     <motion.div
       initial={{ opacity: 0 }}
       animate={{ opacity: 1, transition: { duration: 0.5 } }}
-      className="py-12 font-titleFont flex gap-20"
+      className="font-titleFont grid grid-cols-1 lgl:grid-cols-2 gap-12 lgl:gap-16"
     >
       <div>
-        <div className="flex flex-col gap-4">
+        <div className="py-10 lgl:py-14 flex flex-col gap-3">
           <p className="text-sm text-designColor tracking-[4px]">Recent Experience</p>
-          <h2 className="text-4xl font-bold">Unlocking Opportunities</h2>
+          <h2 className="text-2xl md:text-3xl font-bold text-white">Unlocking Opportunities</h2>
         </div>
-        <div className="mt-14 w-full h-[1000px] border-l-[6px] border-l-black border-opacity-30 flex flex-col gap-10">
+        <div className="w-full flex flex-col gap-8">
           <ResumeCard
             title="Aspiring Software Developer"
             subTitle="Passionate about Crafting Solutions"
@@ -23,7 +23,7 @@ const Experience = () => {
           />
           
           {/* Highlighting Skills */}
-          <div className="overflow-x-hidden">
+          <div className="pl-9 py-2 overflow-x-hidden">
             <p className="text-sm uppercase font-medium  text-designColor">Key Skills</p>
             <p className="mt-2">
               Proficient in a versatile set of technologies, including React, JavaScript, HTML, and CSS. Possess a strong foundation in problem-solving and a keen eye for design. Eager to contribute these skills to create impactful and user-centric applications.
@@ -31,7 +31,7 @@ const Experience = () => {
           </div>
 
           {/* Emphasizing Willingness to Learn */}
-          <div className="overflow-x-hidden  ">
+          <div className="pl-9 py-2 overflow-x-hidden">
             <p className="text-sm uppercase font-medium text-designColor">Continuous Learning</p>
             <p className="mt-2">
               Committed to continuous learning, I thrive in dynamic environments where I can expand my knowledge and skills. Eager to embrace new technologies and contribute to projects that foster both personal and professional growth.
@@ -39,7 +39,7 @@ const Experience = () => {
           </div>
 
           {/* Expressing Enthusiasm for Collaborative Work */}
-          <div className="overflow-x-hidden">
+          <div className="pl-9 py-2 overflow-x-hidden">
             <p className="text-sm uppercase font-medium  text-designColor">Collaborative Spirit</p>
             <p className="mt-2">
               Recognizing the power of collaboration, I am enthusiastic about working in a team-oriented setting. Excited to bring my skills to a collaborative environment where creativity and innovation flourish.
@@ -50,11 +50,11 @@ const Experience = () => {
 
       {/* Previous Education */}
       <div>
-        <div className="flex flex-col gap-4">
+        <div className="py-10 lgl:py-14 flex flex-col gap-3">
           <p className="text-sm text-designColor tracking-[4px]">Educational Background</p>
-          <h2 className="text-4xl font-bold  ">Learning Excellence</h2>
+          <h2 className="text-2xl md:text-3xl font-bold text-white">Learning Excellence</h2>
         </div>
-        <div className="mt-14 w-full h-[1000px] border-l-[6px] border-l-black border-opacity-30 flex flex-col gap-10">
+        <div className="w-full flex flex-col gap-8">
           <ResumeCard
             title="Moringa School of Software Engineering Graduate"
             subTitle="Excelled in Intensive Software Engineering Program"
@@ -63,7 +63,7 @@ const Experience = () => {
           />
           
           {/* Emphasizing Self-Taught Enthusiasm */}
-          <div className="overflow-x-hidden">
+          <div className="pl-9 py-2 overflow-x-hidden">
             <p className="text-sm uppercase font-medium  text-designColor">Self-Taught Enthusiast</p>
             <p className="mt-2">
               Demonstrating a strong commitment to continuous learning, I am a self-taught enthusiast. Actively engaged in staying abreast of the latest technologies and industry trends, passionate about pushing boundaries and embracing new challenges.
@@ -71,7 +71,7 @@ const Experience = () => {
           </div>
 
           {/* Versatility in Technologies */}
-          <div className="overflow-x-hidden">
+          <div className="pl-9 py-2 overflow-x-hidden">
             <p className="text-sm uppercase font-medium  text-designColor">Versatile Developer</p>
             <p className="mt-2">
               Showcase proficiency in various technologies, including Django, Flask, React, and JavaScript. Adaptable and versatile, possessing a strong foundation in both back-end and front-end development.

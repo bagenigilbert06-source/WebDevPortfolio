@@ -7,14 +7,14 @@ const Achievement = () => {
     <motion.div
       initial={{ opacity: 0 }}
       animate={{ opacity: 1, transition: { duration: 0.5 } }}
-      className="py-12 font-titleFont flex gap-20"
+      className="font-titleFont grid grid-cols-1 lgl:grid-cols-2 gap-12 lgl:gap-16"
     >
       <div>
-        <div className="py-12 font-titleFont flex flex-col gap-4">
+        <div className="py-10 lgl:py-14 flex flex-col gap-3">
           <p className="text-sm text-designColor tracking-[4px]">2023 - Present</p>
-          <h2 className="text-4xl font-bold">Professional Development</h2>
+          <h2 className="text-2xl md:text-3xl font-bold text-white">Professional Development</h2>
         </div>
-        <div className="mt-14 w-full h-[1000px] border-l-[6px] border-l-black border-opacity-30 flex flex-col gap-10">
+        <div className="w-full flex flex-col gap-8">
           <ResumeCard
             title="Software Engineer"
             subTitle="Specializing in Django, Flask, React, and JavaScript"
@@ -30,11 +30,11 @@ const Achievement = () => {
         </div>
       </div>
       <div>
-        <div className="py-12 font-titleFont flex flex-col gap-4">
+        <div className="py-10 lgl:py-14 flex flex-col gap-3">
           <p className="text-sm text-designColor tracking-[4px]">2021 - 2023</p>
-          <h2 className="text-4xl font-bold">Educational Journey</h2>
+          <h2 className="text-2xl md:text-3xl font-bold text-white">Educational Journey</h2>
         </div>
-        <div className="mt-14 w-full h-[1000px] border-l-[6px] border-l-black border-opacity-30 flex flex-col gap-10">
+        <div className="w-full flex flex-col gap-8">
           <ResumeCard
             title="Graduated with Honors in Software Engineering"
             subTitle="Pursuing Excellence in Academics"
