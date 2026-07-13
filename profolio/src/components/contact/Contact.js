@@ -10,13 +10,15 @@ const Contact = () => {
   const [message, setMessage] = useState('');
   const [errMsg, setErrMsg] = useState('');
   const [successMsg, setSuccessMsg] = useState('');
+  const [isSending, setIsSending] = useState(false);
 
   const emailValidation = () => {
     return String(email).toLocaleLowerCase().match(/^\w+([-]?\w+)*@\w+([-]?\w+)*(\.\w{2,3})+$/);
   };
 
-  const handleSend = (e) => {
+  const handleSend = async (e) => {
     e.preventDefault();
+    setSuccessMsg('');
     if (username === '') {
       setErrMsg('Username is required!');
     } else if (phoneNumber === '') {
@@ -30,16 +32,44 @@ const Contact = () => {
     } else if (message === '') {
       setErrMsg('Message is required!');
     } else {
-      const emailSubject = encodeURIComponent(`${subject} — from ${username}`);
-      const emailBody = encodeURIComponent(`${message}\n\nFrom: ${username}\nEmail: ${email}\nPhone: ${phoneNumber}`);
-      window.location.href = `mailto:bagenigilbert@gmail.com?subject=${emailSubject}&body=${emailBody}`;
-      setSuccessMsg('Your email draft is ready to send.');
       setErrMsg('');
-      setUsername('');
-      setPhoneNumber('');
-      setEmail('');
-      setSubject('');
-      setMessage('');
+      setIsSending(true);
+
+      try {
+        const response = await fetch('https://formsubmit.co/ajax/bagenigilbert@gmail.com', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            Accept: 'application/json',
+          },
+          body: JSON.stringify({
+            name: username,
+            email,
+            phone: phoneNumber,
+            subject,
+            message,
+            _subject: `New portfolio message: ${subject}`,
+            _template: 'table',
+            _captcha: 'false',
+          }),
+        });
+
+        const result = await response.json();
+        if (!response.ok || result.success === false) {
+          throw new Error(result.message || 'Message delivery failed.');
+        }
+
+        setSuccessMsg('Thank you! Your message has been sent successfully.');
+        setUsername('');
+        setPhoneNumber('');
+        setEmail('');
+        setSubject('');
+        setMessage('');
+      } catch (error) {
+        setErrMsg('Your message could not be sent. Please try again or email me directly.');
+      } finally {
+        setIsSending(false);
+      }
     }
   };
 
@@ -137,9 +167,10 @@ const Contact = () => {
               <div className="w-full">
                 <button
                   type="submit"
-                  className="w-full h-12 bg-[#141518] rounded-lg text-base text-gray-100 tracking-wider uppercase hover:text-white duration-300 hover:border-[1px] hover:border-designColor border-transparent transition duration-300"
+                  disabled={isSending}
+                  className="w-full h-12 bg-[#141518] rounded-lg text-base text-gray-100 tracking-wider uppercase hover:text-white duration-300 hover:border-[1px] hover:border-designColor border-transparent transition duration-300 disabled:cursor-not-allowed disabled:opacity-60"
                 >
-                  Send Message
+                  {isSending ? 'Sending…' : 'Send Message'}
                 </button>
               </div>
             </form>
