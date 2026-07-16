@@ -7,6 +7,11 @@ import botBattleDashboard from "./images/projects/bot-battle-dashboard.webp";
 import socialDashboard from "./images/projects/social-dashboard.webp";
 import ecommerceDashboard from "./images/projects/ecommerce-dashboard.webp";
 import chatDashboard from "./images/projects/chat-dashboard.webp";
+import tumaLogistics from "./images/projects/tuma-logistics.png";
+import enviarSolutions from "./images/projects/enviar-solutions.png";
+import mizizziStore from "./images/projects/mizizzi-store.png";
+import msfDonation from "./images/projects/msf-donation.png";
+import zetechFoundit from "./images/projects/zetech-foundit.svg";
 import testimonialOne from "./images/testimonial/testimonialOne.png";
 import testimonialTwo from "./images/testimonial/testimonialTwo.png";
 import quote from "./images/testimonial/quote.png";
@@ -24,6 +29,11 @@ export {
   socialDashboard,
   ecommerceDashboard,
   chatDashboard,
+  tumaLogistics,
+  enviarSolutions,
+  mizizziStore,
+  msfDonation,
+  zetechFoundit,
   testimonialOne,
   testimonialTwo,
   quote,

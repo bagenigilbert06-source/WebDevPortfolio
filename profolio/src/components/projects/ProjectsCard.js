@@ -24,11 +24,11 @@ const ProjectsCard = ({ title, des, src, websiteLink, githubLink }) => {
               {title}
             </h3>
             <div className="flex gap-2">
-              <a href={githubLink} target="_blank" rel="noopener noreferrer" aria-label={`Open ${title} source code`}>
+              {githubLink && <a href={githubLink} target="_blank" rel="noopener noreferrer" aria-label={`Open ${title} source code`}>
                 <span className="text-lg w-10 h-10 rounded-full bg-black inline-flex justify-center items-center text-gray-400 hover:text-designColor duration-300 cursor-pointer">
                   <BsGithub />
                 </span>
-              </a>
+              </a>}
               {websiteLink && <a href={websiteLink} target="_blank" rel="noopener noreferrer" aria-label={`Open ${title} website`}>
                 <span className="text-lg w-10 h-10 rounded-full bg-black inline-flex justify-center items-center text-gray-400 hover:text-designColor duration-300 cursor-pointer">
                   <FaGlobe />

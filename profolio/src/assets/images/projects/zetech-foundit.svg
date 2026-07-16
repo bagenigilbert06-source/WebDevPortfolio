@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 750" role="img" aria-labelledby="title desc">
+  <title id="title">Zetech Foundit project preview</title>
+  <desc id="desc">A green check mark beside the Zetech Foundit name on a dark green background.</desc>
+  <defs>
+    <linearGradient id="background" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#071a12"/>
+      <stop offset="1" stop-color="#123d28"/>
+    </linearGradient>
+    <linearGradient id="accent" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#6ee7a1"/>
+      <stop offset="1" stop-color="#16a34a"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="750" fill="url(#background)"/>
+  <circle cx="1040" cy="100" r="250" fill="#22c55e" opacity=".07"/>
+  <circle cx="120" cy="690" r="310" fill="#4ade80" opacity=".05"/>
+  <g transform="translate(105 185)">
+    <rect width="330" height="330" rx="78" fill="#fff" opacity=".07"/>
+    <path d="M76 171l61 61L258 102" fill="none" stroke="url(#accent)" stroke-width="42" stroke-linecap="round" stroke-linejoin="round"/>
+  </g>
+  <text x="500" y="315" fill="#fff" font-family="Arial, Helvetica, sans-serif" font-size="76" font-weight="700">Zetech Foundit</text>
+  <text x="505" y="382" fill="#a7c7b4" font-family="Arial, Helvetica, sans-serif" font-size="30">Lost it? Found it. Return it.</text>
+  <rect x="505" y="432" width="258" height="66" rx="33" fill="#22c55e"/>
+  <text x="634" y="475" fill="#052e16" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="23" font-weight="700">CAMPUS LOST &amp; FOUND</text>
+</svg>
