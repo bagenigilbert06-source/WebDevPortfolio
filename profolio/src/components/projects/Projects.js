@@ -6,11 +6,18 @@ import {
   mizizziStore,
   msfDonation,
   zetechFoundit,
+  pesaby,
 } from '../../assets/index';
 import ProjectsCard from './ProjectsCard';
 
 const Projects = () => {
   const projects = [
+    {
+      title: 'Pesaby Business OS',
+      des: 'An all-in-one business operating system for managing sales, inventory, payments, customers, branches, and reporting from one workspace.',
+      src: pesaby,
+      websiteLink: 'https://pesaby.vercel.app/',
+    },
     {
       title: 'Tuma Logistics Platform',
       des: 'A modern logistics workspace for managing fleets, dispatching shipments, and giving clients real-time delivery visibility.',

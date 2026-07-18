@@ -12,6 +12,7 @@ import enviarSolutions from "./images/projects/enviar-solutions.png";
 import mizizziStore from "./images/projects/mizizzi-store.png";
 import msfDonation from "./images/projects/msf-donation.png";
 import zetechFoundit from "./images/projects/zetech-foundit.svg";
+import pesaby from "./images/projects/pesaby.png";
 import testimonialOne from "./images/testimonial/testimonialOne.png";
 import testimonialTwo from "./images/testimonial/testimonialTwo.png";
 import quote from "./images/testimonial/quote.png";
@@ -34,6 +35,7 @@ export {
   mizizziStore,
   msfDonation,
   zetechFoundit,
+  pesaby,
   testimonialOne,
   testimonialTwo,
   quote,
